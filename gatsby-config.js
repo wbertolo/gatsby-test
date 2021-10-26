@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
@@ -34,5 +35,21 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        /*
+        * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
+        * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
+        */
+        url: "wpsource.local.smdg.ca",
+        verbose: true,
+        debug: {
+          graphql: {
+            writeQueriesToDisk: true,
+          },
+        },
+      },
+    },
   ],
 }
